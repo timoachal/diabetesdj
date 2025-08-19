@@ -22,10 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8y)a_)_com1za9x_7&pdp!)iabat%stx9rf)@1-6kq+j(e09*@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# SECURITY WARNING: don't run with debug turned on in production!
+import os
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+
+# Set this to your Vercel domain or use '*' for testing (not recommended for production)
+ALLOWED_HOSTS = [os.environ.get('VERCEL_URL', '*')]
 
 
 # Application definition
@@ -112,10 +115,16 @@ USE_I18N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'predictor', 'static')]
 
-STATIC_URL = 'static/'
+# Security settings for production
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = [f"https://{os.environ.get('VERCEL_URL', '')}"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
