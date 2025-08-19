@@ -1,0 +1,185 @@
+{% extends 'predictor/base.html' %}
+
+{% block title %}About - Diabetes Predictor{% endblock %}
+
+{% block content %}
+<!-- About Hero Section -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <h1>About DiabetesAI</h1>
+            <p>Revolutionizing diabetes prediction through artificial intelligence and machine learning</p>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission">
+    <div class="container">
+        <div class="mission-content">
+            <div class="mission-text">
+                <h2>Our Mission</h2>
+                <p>At DiabetesAI, we're committed to making diabetes prediction accessible, accurate, and actionable for everyone. Our mission is to leverage cutting-edge artificial intelligence to help individuals understand their diabetes risk and take proactive steps towards better health.</p>
+                <p>We believe that early detection and prevention are key to managing diabetes effectively. By providing instant, AI-powered risk assessments, we empower people to make informed decisions about their health and seek appropriate medical care when needed.</p>
+                <div class="mission-stats">
+                    <div class="mission-stat">
+                        <h3>463M</h3>
+                        <p>People with diabetes worldwide</p>
+                    </div>
+                    <div class="mission-stat">
+                        <h3>95%</h3>
+                        <p>Our prediction accuracy</p>
+                    </div>
+                    <div class="mission-stat">
+                        <h3>24/7</h3>
+                        <p>Available anytime, anywhere</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mission-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-microscope"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section class="technology">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Technology</h2>
+            <p>Advanced machine learning algorithms powered by medical research</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Machine Learning</h3>
+                <p>Our Random Forest algorithm is trained on thousands of medical records to identify patterns and risk factors associated with diabetes.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Medical Data</h3>
+                <p>We use validated medical datasets including glucose levels, BMI, blood pressure, and family history to ensure accurate predictions.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Continuous Learning</h3>
+                <p>Our model continuously improves with new data, ensuring the most up-to-date and accurate diabetes risk assessments.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Team</h2>
+            <p>Experts in AI, healthcare, and medical research</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-avatar">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>Dr. Sarah Johnson</h3>
+                <p class="member-role">Chief Medical Officer</p>
+                <p>Endocrinologist with 15+ years of diabetes research experience</p>
+            </div>
+            <div class="team-member">
+                <div class="member-avatar">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Alex Chen</h3>
+                <p class="member-role">Lead AI Engineer</p>
+                <p>Machine learning expert specializing in healthcare applications</p>
+            </div>
+            <div class="team-member">
+                <div class="member-avatar">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Dr. Michael Rodriguez</h3>
+                <p class="member-role">Data Scientist</p>
+                <p>PhD in Biostatistics with focus on predictive modeling</p>
+            </div>
+            <div class="team-member">
+                <div class="member-avatar">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h3>Dr. Emily Watson</h3>
+                <p class="member-role">Clinical Advisor</p>
+                <p>Primary care physician and diabetes prevention specialist</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Values</h2>
+            <p>The principles that guide our work</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Patient-Centered</h3>
+                <p>Every decision we make is focused on improving patient outcomes and experiences.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h3>Evidence-Based</h3>
+                <p>Our algorithms are built on peer-reviewed research and validated medical data.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Privacy First</h3>
+                <p>We protect your health information with the highest security standards.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Accessible</h3>
+                <p>Healthcare technology should be available to everyone, regardless of location or background.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Want to Learn More?</h2>
+            <p>Get in touch with our team to discuss partnerships, research collaborations, or general inquiries.</p>
+            <div class="contact-buttons">
+                <a href="mailto:info@diabetesai.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Contact Us
+                </a>
+                <a href="{% url 'predictor:services' %}" class="btn btn-secondary">
+                    <i class="fas fa-cogs"></i>
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

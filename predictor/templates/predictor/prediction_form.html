@@ -1,0 +1,202 @@
+{% extends 'predictor/base.html' %}
+{% load static %}
+
+{% block title %}Diabetes Prediction - Diabetes Predictor{% endblock %}
+
+{% block content %}
+<!-- Prediction Hero Section -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <h1>Diabetes Risk Assessment</h1>
+            <p>Enter your health information to get an AI-powered diabetes risk prediction</p>
+        </div>
+    </div>
+</section>
+
+<!-- Prediction Form Section -->
+<section class="prediction-section">
+    <div class="container">
+        <div class="prediction-container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Health Information Form</h2>
+                    <p>Please provide accurate information for the most reliable prediction</p>
+                </div>
+                
+                <form id="predictionForm" class="prediction-form">
+                    {% csrf_token %}
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="pregnancies">
+                                <i class="fas fa-baby"></i>
+                                Number of Pregnancies
+                            </label>
+                            <input type="number" id="pregnancies" name="pregnancies" min="0" max="20" value="0" required>
+                            <small>Total number of pregnancies (0 if male or never pregnant)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="glucose">
+                                <i class="fas fa-tint"></i>
+                                Glucose Level (mg/dL)
+                            </label>
+                            <input type="number" id="glucose" name="glucose" min="0" max="300" step="0.1" required>
+                            <small>Plasma glucose concentration (normal: 70-100 mg/dL fasting)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="blood_pressure">
+                                <i class="fas fa-heartbeat"></i>
+                                Blood Pressure (mmHg)
+                            </label>
+                            <input type="number" id="blood_pressure" name="blood_pressure" min="0" max="200" step="0.1" required>
+                            <small>Diastolic blood pressure (normal: 60-80 mmHg)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="skin_thickness">
+                                <i class="fas fa-ruler"></i>
+                                Skin Thickness (mm)
+                            </label>
+                            <input type="number" id="skin_thickness" name="skin_thickness" min="0" max="100" step="0.1" required>
+                            <small>Triceps skin fold thickness (normal: 10-25 mm)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="insulin">
+                                <i class="fas fa-syringe"></i>
+                                Insulin Level (μU/mL)
+                            </label>
+                            <input type="number" id="insulin" name="insulin" min="0" max="1000" step="0.1" required>
+                            <small>2-hour serum insulin (normal: 16-166 μU/mL)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bmi">
+                                <i class="fas fa-weight"></i>
+                                BMI (kg/m²)
+                            </label>
+                            <input type="number" id="bmi" name="bmi" min="10" max="70" step="0.1" required>
+                            <small>Body Mass Index (normal: 18.5-24.9 kg/m²)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="diabetes_pedigree">
+                                <i class="fas fa-dna"></i>
+                                Diabetes Pedigree Function
+                            </label>
+                            <input type="number" id="diabetes_pedigree" name="diabetes_pedigree" min="0" max="3" step="0.001" required>
+                            <small>Family history score (0.078-2.42, higher = more family history)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">
+                                <i class="fas fa-calendar-alt"></i>
+                                Age (years)
+                            </label>
+                            <input type="number" id="age" name="age" min="18" max="120" required>
+                            <small>Your current age in years</small>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large" id="predictBtn">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Predict Diabetes Risk</span>
+                            <div class="loading-spinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </button>
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i>
+                            Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Results Container -->
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <div class="results-header">
+                    <h2>Prediction Results</h2>
+                    <p>Based on the information you provided</p>
+                </div>
+                
+                <div class="result-card" id="resultCard">
+                    <div class="result-icon" id="resultIcon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="result-content">
+                        <h3 id="resultTitle">Analyzing...</h3>
+                        <div class="probability-display">
+                            <div class="probability-circle" id="probabilityCircle">
+                                <span id="probabilityText">0%</span>
+                            </div>
+                            <div class="probability-info">
+                                <p id="resultMessage">Processing your data...</p>
+                                <div class="risk-level" id="riskLevel">
+                                    <span class="risk-label">Risk Level:</span>
+                                    <span class="risk-value" id="riskValue">Calculating...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendations" id="recommendations" style="display: none;">
+                    <h3><i class="fas fa-lightbulb"></i> Recommendations</h3>
+                    <div class="recommendation-list" id="recommendationList">
+                        <!-- Recommendations will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button class="btn btn-primary" onclick="window.print()">
+                        <i class="fas fa-print"></i>
+                        Print Results
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetPrediction()">
+                        <i class="fas fa-redo"></i>
+                        New Prediction
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Information Section -->
+<section class="info-section">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Privacy Protected</h3>
+                <p>Your health data is encrypted and never shared with third parties.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Instant Results</h3>
+                <p>Get your diabetes risk assessment in seconds using advanced AI.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>Medical Grade</h3>
+                <p>Our algorithm is trained on validated medical datasets.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'predictor/js/prediction.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,335 @@
+{% extends 'predictor/base.html' %}
+
+{% block title %}Services - Diabetes Predictor{% endblock %}
+
+{% block content %}
+<!-- Services Hero Section -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <h1>Our Services</h1>
+            <p>Comprehensive diabetes prediction and health monitoring solutions</p>
+        </div>
+    </div>
+</section>
+
+<!-- Main Services Section -->
+<section class="services-main">
+    <div class="container">
+        <div class="services-grid">
+            <div class="service-card featured">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Diabetes Risk Prediction</h3>
+                    <span class="service-badge">Most Popular</span>
+                </div>
+                <div class="service-content">
+                    <p>Get instant diabetes risk assessment using our advanced AI algorithm. Input your health metrics and receive a detailed probability score with personalized recommendations.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Instant AI-powered analysis</li>
+                        <li><i class="fas fa-check"></i> 95% accuracy rate</li>
+                        <li><i class="fas fa-check"></i> Detailed risk breakdown</li>
+                        <li><i class="fas fa-check"></i> Personalized recommendations</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">Free</span>
+                        <span class="price-note">Basic assessment</span>
+                    </div>
+                    <a href="{% url 'predictor:prediction_form' %}" class="btn btn-primary">Try Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Health Monitoring</h3>
+                </div>
+                <div class="service-content">
+                    <p>Track your health metrics over time with our comprehensive monitoring system. View trends, set goals, and receive alerts for significant changes.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Historical data tracking</li>
+                        <li><i class="fas fa-check"></i> Trend analysis</li>
+                        <li><i class="fas fa-check"></i> Goal setting</li>
+                        <li><i class="fas fa-check"></i> Progress alerts</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">$9.99</span>
+                        <span class="price-note">per month</span>
+                    </div>
+                    <a href="#" class="btn btn-secondary">Coming Soon</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Expert Consultation</h3>
+                </div>
+                <div class="service-content">
+                    <p>Connect with certified diabetes specialists and endocrinologists for personalized advice based on your risk assessment results.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Board-certified specialists</li>
+                        <li><i class="fas fa-check"></i> Video consultations</li>
+                        <li><i class="fas fa-check"></i> Personalized care plans</li>
+                        <li><i class="fas fa-check"></i> Follow-up support</li>
+                    </ul>
+                    <div class="service-price">
+                        <span class="price">$49.99</span>
+                        <span class="price-note">per session</span>
+                    </div>
+                    <a href="#" class="btn btn-secondary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Services -->
+<section class="additional-services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Additional Services</h2>
+            <p>Comprehensive health solutions for diabetes prevention and management</p>
+        </div>
+        <div class="additional-grid">
+            <div class="additional-card">
+                <div class="additional-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile App</h3>
+                <p>Access diabetes prediction and monitoring tools on-the-go with our mobile application.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="additional-card">
+                <div class="additional-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <h3>Healthcare Integration</h3>
+                <p>Seamlessly integrate with your healthcare provider's systems for comprehensive care.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="additional-card">
+                <div class="additional-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Educational Resources</h3>
+                <p>Access comprehensive diabetes education materials and prevention strategies.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="additional-card">
+                <div class="additional-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Data Security</h3>
+                <p>Enterprise-grade security ensures your health data remains private and protected.</p>
+                <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- API Services -->
+<section class="api-services">
+    <div class="container">
+        <div class="api-content">
+            <div class="api-text">
+                <h2>Developer API</h2>
+                <p>Integrate our diabetes prediction capabilities into your healthcare applications with our robust API.</p>
+                <div class="api-features">
+                    <div class="api-feature">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h4>RESTful API</h4>
+                            <p>Easy-to-use REST endpoints with comprehensive documentation</p>
+                        </div>
+                    </div>
+                    <div class="api-feature">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <div>
+                            <h4>High Performance</h4>
+                            <p>Sub-second response times with 99.9% uptime guarantee</p>
+                        </div>
+                    </div>
+                    <div class="api-feature">
+                        <i class="fas fa-key"></i>
+                        <div>
+                            <h4>Secure Access</h4>
+                            <p>API key authentication with rate limiting and monitoring</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary">View Documentation</a>
+            </div>
+            <div class="api-code">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Python</span>
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <pre><code>import requests
+
+# Make prediction request
+response = requests.post(
+    'https://api.diabetesai.com/predict',
+    headers={'Authorization': 'Bearer YOUR_API_KEY'},
+    json={
+        'glucose': 120,
+        'bmi': 25.5,
+        'age': 35,
+        'blood_pressure': 80
+    }
+)
+
+result = response.json()
+print(f"Risk: {result['probability']:.2%}")</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Plans -->
+<section class="pricing">
+    <div class="container">
+        <div class="section-header">
+            <h2>Choose Your Plan</h2>
+            <p>Flexible pricing options for individuals and healthcare organizations</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Basic</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">0</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 5 predictions per month</li>
+                    <li><i class="fas fa-check"></i> Basic risk assessment</li>
+                    <li><i class="fas fa-check"></i> Email support</li>
+                    <li><i class="fas fa-times"></i> Historical tracking</li>
+                    <li><i class="fas fa-times"></i> Expert consultation</li>
+                </ul>
+                <a href="{% url 'predictor:prediction_form' %}" class="btn btn-outline">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>Pro</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">19</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Unlimited predictions</li>
+                    <li><i class="fas fa-check"></i> Advanced analytics</li>
+                    <li><i class="fas fa-check"></i> Historical tracking</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                    <li><i class="fas fa-check"></i> Mobile app access</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Start Free Trial</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Enterprise</h3>
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">99</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> API access</li>
+                    <li><i class="fas fa-check"></i> Custom integrations</li>
+                    <li><i class="fas fa-check"></i> Dedicated support</li>
+                    <li><i class="fas fa-check"></i> White-label options</li>
+                    <li><i class="fas fa-check"></i> SLA guarantee</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Contact Sales</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Common questions about our diabetes prediction services</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How accurate is the diabetes prediction?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI model achieves 95% accuracy based on validation against medical datasets. However, this is a screening tool and should not replace professional medical diagnosis.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is my health data secure?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we use enterprise-grade encryption and comply with HIPAA regulations to ensure your health information remains private and secure.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I use this instead of seeing a doctor?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No, our tool is designed for screening and early detection. Always consult with healthcare professionals for medical diagnosis and treatment decisions.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What data do I need to provide?</h3>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You'll need basic health metrics like glucose levels, BMI, blood pressure, age, and family history information for the most accurate prediction.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// FAQ Toggle functionality
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
+        const icon = question.querySelector('i');
+        
+        faqItem.classList.toggle('active');
+        
+        if (faqItem.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.classList.replace('fa-plus', 'fa-minus');
+        } else {
+            answer.style.maxHeight = '0';
+            icon.classList.replace('fa-minus', 'fa-plus');
+        }
+    });
+});
+</script>
+{% endblock %}
+
