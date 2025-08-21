@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "functions": {
-    "api/manage.py": {
-      "runtime": "python3.9"
-    }
-  },
+  "builds": [
+    { "src": "diabetes_predictor/wsgi.py", "use": "@vercel/python@3.9" }
+  ],
   "routes": [
     { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "/api/manage.py" }
+    { "src": "/(.*)", "dest": "/diabetes_predictor/wsgi.py" }
   ]
 }
+
